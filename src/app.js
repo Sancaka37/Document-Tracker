@@ -1,8 +1,17 @@
 // Logika Utama - R-LEGS Enterprise Document Tracking Dashboard (R-EDT)
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Inisialisasi Data
-  initDatabase();
+import { DocumentAPI } from './config/apiAdapter.js';
+import { INITIAL_PROJECTS, STAGE_FLOW, USERS_ROLE } from './config/mockData.js';
+
+// --- STATE MANAJEMEN ---
+let projects = [];
+let activeProjectId = null;
+let activeSubStepCode = null;
+let activeProjectFilterMode = "all"; // 'all' atau 'my-tasks'
+
+async function bootSystem() {
+  // 1. Inisialisasi Data secara Asinkron (Menunggu Adapter API)
+  await initDatabase();
   
   // 2. Event Listeners
   setupNavigation();
@@ -17,24 +26,29 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // 4. Jalankan Interval untuk Memperbarui SLA / Waktu Secara Real-Time
   setInterval(updateAllSLATimers, 10000); // Perbarui setiap 10 detik
-});
+} ;
+if (document.readyState === "loading") {
+    // Jika browser bilang: "Sabar, HTML sedang digambar!"
+    document.addEventListener("DOMContentLoaded", bootSystem);
+} else {
+    // Jika browser bilang: "Udah kelar dari tadi bro!"
+    bootSystem();
+}
 
-// --- STATE MANAJEMEN ---
-let projects = [];
-let activeProjectId = null;
-let activeSubStepCode = null;
-let activeProjectFilterMode = "all"; // 'all' atau 'my-tasks'
-
-function initDatabase() {
-  // Load data proyek dengan pemeriksaan versi database untuk mereset data lama jika ada pembaruan draf Empty
-  const dbVersion = "v6_spaced_active_tasks_more_custodians";
+async function initDatabase() {
+  // Versi DB kita naikkan ke v7 agar browser otomatis mereset cache lama 
+  // dan memaksa menarik data lewat jembatan API Adapter!
+  const dbVersion = "v8_force_fresh_install";
   const storedVersion = localStorage.getItem("r_legs_db_version");
   const storedProjects = localStorage.getItem("r_legs_projects");
   
   if (!storedProjects || storedVersion !== dbVersion) {
-    localStorage.setItem("r_legs_projects", JSON.stringify(INITIAL_PROJECTS));
+    console.log("[R-EDT ARCHITECTURE]: Menarik data melalui API Adapter layer...");
+    const rawData = await DocumentAPI.getDocuments();
+
+    localStorage.setItem("r_legs_projects", JSON.stringify(rawData));
     localStorage.setItem("r_legs_db_version", dbVersion);
-    projects = JSON.parse(JSON.stringify(INITIAL_PROJECTS));
+    projects = JSON.parse(JSON.stringify(rawData));
   } else {
     projects = JSON.parse(storedProjects);
   }
@@ -1116,7 +1130,7 @@ function openDocumentPreview(p, doc) {
             <div class="pdf-letterhead-left">
               <span class="pdf-logo-text">Telkom Indonesia</span>
               <span style="font-size:0.6rem; color:#cbd5e1; font-weight:300;">|</span>
-              <span class="pdf-logo-sub">Regional IV R-LEGS</span>
+              <span class="pdf-logo-sub">Regional III R-LEGS</span>
             </div>
             <div class="pdf-letterhead-right">
               <span class="pdf-unit-text">Divisi Large Enterprise</span>
@@ -1151,7 +1165,7 @@ function openDocumentPreview(p, doc) {
           </table>
           <div class="pdf-doc-content" style="margin-bottom: 16px;">
             <p class="pdf-paragraph">
-              Menimbang bahwa pihak penyedia layanan solusi digital, dalam hal ini diwakili oleh <b>PT Telekomunikasi Indonesia (Persero) Tbk Regional IV</b>, menyepakati perihal pengadaan berkas administratif untuk pelanggan segmen bisnis berskala besar / instansi pemerintah terkait proyek kerja sama di atas.
+              Menimbang bahwa pihak penyedia layanan solusi digital, dalam hal ini diwakili oleh <b>PT Telekomunikasi Indonesia (Persero) Tbk Regional III</b>, menyepakati perihal pengadaan berkas administratif untuk pelanggan segmen bisnis berskala besar / instansi pemerintah terkait proyek kerja sama di atas.
             </p>
             <p class="pdf-paragraph">
               Berkas <b>${doc.name}</b> ini diterbitkan secara resmi melalui sistem pemantauan terpadu <i>R-EDT (Regional Enterprise Document Tracking)</i> dan secara otomatis terintegrasi ke dalam *DigiReview* serta portal pengadaan internal *MyTens RPA*.
@@ -1392,7 +1406,7 @@ function handleDocumentAction(projectId, docCode, action) {
       p.custodian = {
         name: "Proyek Dibatalkan",
         role: "Status: GO-NO GO (NO GO)",
-        dept: "SDA Regional IV",
+        dept: "SDA Regional III",
         avatar: "https://images.unsplash.com/photo-1594322436404-5a0526db4d13?auto=format&fit=crop&w=150&h=150&q=80"
       };
       
@@ -1665,7 +1679,7 @@ function showToast(message) {
 // --- LOGIKA SIMULASI UNGGAL BERKAS & MS TEAMS / LOCAL EXPLORER PICKER ---
 
 const TEAMS_CHANNELS_FILES = {
-  "AM B2B Regional IV": [
+  "AM B2B Regional III": [
     { name: "justkeb_p1_final_signed.pdf", size: "1.5 MB", date: "Hari ini, 09:30", type: "pdf" },
     { name: "draf_perjanjian_b2b_rlegs_semarang.pdf", size: "4.2 MB", date: "14 Jun 2026", type: "pdf" }
   ],
@@ -1725,7 +1739,7 @@ function openTeamsFilePicker(p, doc) {
   const modal = document.getElementById("teams-picker-modal");
   if (!modal) return;
   
-  let currentChannel = "AM B2B Regional IV";
+  let currentChannel = "AM B2B Regional III";
   let selectedFile = null;
   
   const listContainer = document.getElementById("teams-files-list");
@@ -1740,7 +1754,7 @@ function openTeamsFilePicker(p, doc) {
     
     // Create the contextual files
     let files = [];
-    if (currentChannel === "AM B2B Regional IV") {
+    if (currentChannel === "AM B2B Regional III") {
       files.push({ name: `${doc.code}_Revised_${p.id.replace(/-/g,"_")}_v2.pdf`, size: "2.4 MB", date: "Hari ini, 09:30", type: "pdf" });
     } else if (currentChannel === "Legal & Compliance" && doc.code === "KL") {
       files.push({ name: `${doc.code}_Draft_Kontrak_Review_Legal.docx`, size: "1.9 MB", date: "Hari ini, 10:15", type: "docx" });

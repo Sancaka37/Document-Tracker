@@ -1,7 +1,7 @@
 // Mock Data Awal untuk R-LEGS Enterprise Document Tracking Dashboard (R-EDT)
 // Berisi data simulasi proyek B2B Telkom Indonesia, dengan SLA dan log audit yang realistis.
 
-const INITIAL_PROJECTS = [
+export const INITIAL_PROJECTS = [
   {
     id: "PRJ-2026-001",
     name: "Pengembangan Infrastructure Smart City & CCTV IoT",
@@ -15,8 +15,9 @@ const INITIAL_PROJECTS = [
     slaLimitHours: 48,
     custodian: {
       name: "Indra Hermawan, S.H.",
+      email: "indra.rlegs@telkom.co.id",
       role: "Legal Officer",
-      dept: "Legal Regional IV Telkom",
+      dept: "Legal Regional III Telkom",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -59,8 +60,9 @@ const INITIAL_PROJECTS = [
     slaLimitHours: 48,
     custodian: {
       name: "Rian Wijaya",
+      email: "rian.rlegs@telkom.co.id",
       role: "SDA Officer",
-      dept: "Service Delivery Assurance Regional IV",
+      dept: "Service Delivery Assurance Regional III",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -100,6 +102,7 @@ const INITIAL_PROJECTS = [
     slaLimitHours: 48,
     custodian: {
       name: "Budi Santoso",
+      email: "budi.rlegs@telkom.co.id",
       role: "Account Manager",
       dept: "Account Management R-LEGS",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80"
@@ -222,7 +225,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Ahmad Yani",
       role: "Business Unit Delivery (BUD) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -261,7 +264,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Arief Rahman",
       role: "Service Delivery Assurance (SDA) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -300,7 +303,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Riana Indah, S.H.",
       role: "Legal Officer",
-      dept: "Legal & Compliance Regional IV",
+      dept: "Legal & Compliance Regional III",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -377,7 +380,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Indra Hermawan, S.H.",
       role: "Legal Officer",
-      dept: "Legal & Compliance Regional IV",
+      dept: "Legal & Compliance Regional III",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -415,7 +418,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Dewi Lestari",
       role: "Business Unit Delivery (BUD) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -453,7 +456,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Rian Wijaya",
       role: "Service Delivery Assurance (SDA) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -491,7 +494,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Riana Indah, S.H.",
       role: "Legal Officer",
-      dept: "Legal & Compliance Regional IV",
+      dept: "Legal & Compliance Regional III",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -529,7 +532,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Ahmad Yani",
       role: "Business Unit Delivery (BUD) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -643,7 +646,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Arief Rahman",
       role: "Service Delivery Assurance (SDA) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -681,7 +684,7 @@ const INITIAL_PROJECTS = [
     custodian: {
       name: "Dewi Lestari",
       role: "Business Unit Delivery (BUD) Officer",
-      dept: "SDA & BUD Division Regional IV",
+      dept: "SDA & BUD Division Regional III",
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80"
     },
     documents: [
@@ -707,7 +710,7 @@ const INITIAL_PROJECTS = [
   }
 ];
 
-const STAGE_FLOW = [
+export const STAGE_FLOW = [
   { phase: "F0", name: "Lead", desc: "Pendataan Awal Peluang Bisnis", steps: [] },
   { phase: "F1", name: "Opportunity", desc: "Penyaringan & Kualifikasi Proyek", steps: [] },
   {
@@ -736,10 +739,11 @@ const STAGE_FLOW = [
   }
 ];
 
-const USERS_ROLE = {
+export const USERS_ROLE = {
   AM: {
     username: "AM-Budi",
     name: "Budi Santoso",
+    email: "budi.rlegs@telkom.co.id",
     role: "Account Manager",
     dept: "Account Management B2B R-LEGS",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80"
@@ -747,6 +751,7 @@ const USERS_ROLE = {
   AM_SITI: {
     username: "AM-Siti",
     name: "Siti Aminah",
+    email: "siti.rlegs@telkom.co.id",
     role: "Account Manager",
     dept: "Account Management B2B R-LEGS",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80"
@@ -754,6 +759,7 @@ const USERS_ROLE = {
   AM_YUNI: {
     username: "AM-Yuni",
     name: "Yuni Kartika",
+    email: "yuni.rlegs@telkom.co.id",
     role: "Account Manager",
     dept: "Account Management B2B R-LEGS",
     avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&h=150&q=80"
@@ -761,50 +767,57 @@ const USERS_ROLE = {
   BUD: {
     username: "BUD-Ahmad",
     name: "Ahmad Yani",
+    email: "ahmad.rlegs@telkom.co.id",
     role: "Business Unit Delivery (BUD) Officer",
-    dept: "SDA & BUD Division Regional IV",
+    dept: "SDA & BUD Division Regional III",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80"
   },
   BUD_DEWI: {
     username: "BUD-Dewi",
     name: "Dewi Lestari",
+    email: "dewi.rlegs@telkom.co.id",
     role: "Business Unit Delivery (BUD) Officer",
-    dept: "SDA & BUD Division Regional IV",
+    dept: "SDA & BUD Division Regional III",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80"
   },
   SDA: {
     username: "SDA-Rian",
     name: "Rian Wijaya",
+    email: "rian.rlegs@telkom.co.id",
     role: "Service Delivery Assurance (SDA) Officer",
-    dept: "SDA & BUD Division Regional IV",
+    dept: "SDA & BUD Division Regional III",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80"
   },
   SDA_ARIEF: {
     username: "SDA-Arief",
     name: "Arief Rahman",
+    email: "arief.rlegs@telkom.co.id",
     role: "Service Delivery Assurance (SDA) Officer",
-    dept: "SDA & BUD Division Regional IV",
+    dept: "SDA & BUD Division Regional III",
     avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80"
   },
   LEGAL: {
     username: "LEGAL-Indra",
     name: "Indra Hermawan, S.H.",
+    email: "indra.rlegs@telkom.co.id",
     role: "Legal Officer",
-    dept: "Legal & Compliance Regional IV",
+    dept: "Legal & Compliance Regional III",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
   },
   LEGAL_RIANA: {
     username: "LEGAL-Riana",
     name: "Riana Indah, S.H.",
+    email: "riana.rlegs@telkom.co.id",
     role: "Legal Officer",
-    dept: "Legal & Compliance Regional IV",
+    dept: "Legal & Compliance Regional III",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
   },
   MANAGER: {
     username: "MGR-Heru",
     name: "Heru Wibowo, M.B.A.",
+    email: "heru.rlegs@telkom.co.id",
     role: "Regional Head of R-LEGS",
-    dept: "Executive Board Regional IV Telkom",
+    dept: "Executive Board Regional III Telkom",
     avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&h=150&q=80"
   }
 };
